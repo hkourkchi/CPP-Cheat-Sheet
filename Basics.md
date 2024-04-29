@@ -462,5 +462,136 @@ These suffixes provide additional type information for literals, allowing develo
 - f / F: Suffix used for float literals. Example: 3.14f, 0.001F.
 - d / D: Suffix used for double literals (although not commonly used, as double is the default type for floating-point literals). Example: 3.14d, 0.001D.
 - s / S: Suffix used for std::string literals (user-defined literals). Example: "Hello"s, "World!"s./
+
+## Templates
+
+Templates are used for generic programming, allowing functions and classes to work with any data type. They enable the creation of generic functions and classes that can operate with any data type, improving code reuse and efficiency by avoiding code duplication for different data types.
+
+### Class Template
+
+A template for creating generic classes. It defines a blueprint for a class without specifying the data types of its members.
+
+```cpp
+template<typename T>
+class Pair {
+private:
+    T first;
+    T second;
+public:
+    Pair(T a, T b) : first(a), second(b) {}
+    T getFirst() const { return first; }
+    T getSecond() const { return second; }
+};
+```
+
+### Function Template
+
+A template for creating generic functions. It defines a blueprint for a function without specifying the data types of its parameters or return value.
+
+```cpp
+template<typename T>
+T add(T a, T b) {
+    return a + b;
+}
+```
+
+#### Example
+
+```cpp
+// Using the Pair class template with different data types
+Pair<int> intPair(5, 10);
+Pair<double> doublePair(3.5, 2.5);
+
+cout << "First value of intPair: " << intPair.getFirst() << endl;
+cout << "Second value of doublePair: " << doublePair.getSecond() << endl;
+
+// Using the add function template with different data types
+int sum1 = add<int>(5, 10); // Explicitly specifying the data type
+double sum2 = add(3.5, 2.5); // Template type deduction
+
+cout << "Sum of integers: " << sum1 << endl;
+cout << "Sum of doubles: " << sum2 << endl;
+```
+
+### Template Specialization
+
+Template specialization is a feature in C++ that allows you to provide custom implementations for specific data types or conditions within a template. It enables you to tailor the behavior of a template for particular cases while still benefiting from generic programming.
+
+There are two types of template specialization:
+
+#### **Explicit Specialization**: In explicit specialization, you provide a specific implementation for a template for a particular data type.
+
+```cpp
+// Generic template
+template<typename T>
+void print(T value) {
+    std::cout << value << std::endl;
+}
+
+// Explicit specialization for the char* data type
+template<>
+void print<char*>(char* value) {
+    std::cout << "Specialized printing for char*: " << value << std::endl;
+}
+```
+
+#### **Partial Specialization**: In partial specialization, you specialize the template for a subset of the possible template arguments.
+
+```cpp
+// Generic template
+template<typename T, int N>
+class Array {
+    // Implementation
+};
+
+// Partial specialization for arrays of pointers
+template<typename T>
+class Array<T*, 10> {
+    // Implementation specific to arrays of pointers with size 10
+};
+```
+
+Template specialization allows you to optimize or provide different behavior for specific cases without duplicating code. It's commonly used in scenarios where generic solutions are not sufficient or where performance optimizations are necessary.
+
+### Variadic templates
+Variadic templates allow you to define functions or classes that can accept an arbitrary number of arguments of any type.
+
+```cpp
+#include <iostream>
+
+// Base case: Function to handle printing a single argument
+template<typename T>
+void print(T arg) {
+    std::cout << arg << std::endl;
+}
+
+// Recursive case: Function to handle printing multiple arguments
+template<typename T, typename... Args>
+void print(T firstArg, Args... args) {
+    std::cout << firstArg << " ";
+    print(args...); // Recursively call print for the remaining arguments
+}
+
+int main() {
+    print(1, 2.5, "Hello", 'a');
+    return 0;
+}
+```
+In this example, the print function is defined using a variadic template. It has two versions:
+
+*Base case*: This version of the function handles printing a single argument. When there's only one argument left, it prints it and then the recursion stops.
+*Recursive case*: This version handles printing multiple arguments. It prints the first argument, then recursively calls itself with the remaining arguments until all arguments are printed.
+
+
+### Explanation
+
+- Templates in C++ provide a form of compile-time polymorphism. This means that the compiler generates different versions of the code for each data type used with the template at compile time. It allows for type-specific optimizations and ensures type safety without any runtime overhead.
+- Templates enable the creation of generic functions and classes that can work with any data type.
+- Template instantiations occur when the compiler generates specific instances of a template for different data types used with that template. These instantiations happen at compile time, and each instantiation results in a distinct version of the template code tailored to the specific data type.
+- They are instantiated with different data types at compile-time, allowing for code reuse and flexibility.
+- Class templates provide a way to create generic classes that can hold any data type.
+- Function templates provide a way to create generic functions that can operate on any data type.
+- Template parameters can be explicitly specified or deduced by the compiler based on the function arguments or class member types.
+
   
 
