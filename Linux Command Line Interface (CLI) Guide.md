@@ -64,3 +64,39 @@
 - **`passwd [username]`**: Changes the password for a user.
 - **`su [username]`**: Switches to another user account.
 - **`sudo [command]`**: Runs a command with superuser privileges.
+
+
+
+# Specialized Linux CLI Commands for File and Folder Management
+
+| **Function**                           | **Command**                                          | **Description**                                              |
+|----------------------------------------|------------------------------------------------------|--------------------------------------------------------------|
+| **List Files and Directories**         | `ls`                                                | Lists all files and directories in the current directory.   |
+| **Change Directory**                   | `cd [directory]`                                    | Changes the current directory to the specified directory.   |
+| **Display Current Directory**          | `pwd`                                               | Displays the current working directory.                     |
+| **Create New Directory**               | `mkdir [directory]`                                | Creates a new directory.                                    |
+| **Remove Empty Directory**             | `rmdir [directory]`                                | Removes an empty directory.                                 |
+| **Remove Directory and Contents**      | `rm -r [directory]`                                | Removes a directory and all of its contents.                |
+| **Copy File**                          | `cp [source] [destination]`                         | Copies a file from the source to the destination.           |
+| **Copy Directory and Contents**        | `cp -r [source] [destination]`                      | Copies a directory and its contents, including subdirectories. |
+| **Move/Rename File**                   | `mv [source] [destination]`                         | Moves or renames a file.                                    |
+| **Move/Rename Directory**              | `mv [source] [destination]`                         | Moves or renames a directory and its contents.              |
+| **Delete File**                        | `rm [filename]`                                    | Deletes a specified file.                                   |
+| **Delete Multiple Files**              | `rm [pattern]`                                    | Deletes multiple files matching the specified pattern.      |
+| **Delete Directory and Contents**      | `rm -r [directory]`                                | Removes a directory and all of its contents.                |
+| **Rename File or Directory**           | `mv [oldname] [newname]`                           | Renames a file or directory.                                |
+| **Find Files and Directories**         | `find [directory] -name [pattern]`                  | Searches for files and directories matching the pattern in the specified directory. |
+| **Search Text in Files**               | `grep [pattern] [file]`                            | Searches for a specific text pattern in a file.             |
+| **Display File Content**               | `cat [filename]`                                  | Displays the contents of a file.                            |
+| **Compare Files**                     | `diff [file1] [file2]`                              | Compares two files and displays the differences.            |
+| **Create Archive**                    | `tar -cf [archive_name.tar] [directory]`            | Creates a `.tar` archive of a directory.                    |
+| **Extract Archive**                   | `tar -xf [archive_name.tar]`                        | Extracts a `.tar` archive.                                 |
+| **Compress File**                     | `gzip [filename]`                                  | Compresses a file to `.gz` format.                          |
+| **Decompress File**                   | `gunzip [filename]`                                | Decompresses a `.gz` file.                                 |
+| **List Archive Contents**             | `tar -tf [archive_name.tar]`                        | Lists the contents of a `.tar` archive.                     |
+| **Copy Directory Tree**               | `cp -r [source] [destination]`                      | Copies a directory tree with all subdirectories and files.  |
+| **Get File Attributes**               | `ls -l [filename]`                                 | Displays detailed attributes of a file.                     |
+| **Change File Permissions**            | `chmod [permissions] [filename]`                    | Changes the file permissions.                              |
+| **Change File Ownership**              | `chown [user]:[group] [filename]`                   | Changes the owner and group of a file.                      |
+
+
