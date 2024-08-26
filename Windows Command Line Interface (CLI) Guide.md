@@ -186,3 +186,35 @@
   shutdown /s /t 60
   ```
 
+
+# Specialized Windows CLI Commands for File and Folder Management
+
+| **Function**                           | **Command**                                          | **Description**                                              |
+|----------------------------------------|------------------------------------------------------|--------------------------------------------------------------|
+| **List Files and Directories**         | `dir`                                                | Lists all files and directories in the current directory.   |
+| **Change Directory**                   | `cd [directory]`                                    | Changes the current directory to the specified directory.   |
+| **Display Current Directory**          | `echo %cd%`                                          | Displays the current working directory.                     |
+| **Create New Directory**               | `mkdir [directory]`                                | Creates a new directory.                                    |
+| **Remove Empty Directory**             | `rmdir [directory]`                                | Removes an empty directory.                                 |
+| **Remove Directory and Contents**      | `rmdir /s [directory]`                             | Removes a directory and all of its contents.                |
+| **Copy File**                          | `copy [source] [destination]`                       | Copies a file from the source to the destination.           |
+| **Copy Directory and Contents**        | `xcopy [source] [destination] /s /e`                | Copies a directory and its contents, including subdirectories. |
+| **Move File**                          | `move [source] [destination]`                       | Moves or renames a file.                                    |
+| **Move Directory and Contents**        | `move [source] [destination]`                       | Moves or renames a directory and its contents.              |
+| **Delete File**                        | `del [filename]`                                    | Deletes a specified file.                                   |
+| **Delete Multiple Files**              | `del [pattern]`                                    | Deletes multiple files matching the specified pattern.      |
+| **Delete Directory and Contents**      | `rd /s [directory]`                                | Removes a directory and all of its contents (alias for `rmdir /s`). |
+| **Rename File or Directory**           | `ren [oldname] [newname]`                           | Renames a file or directory.                                |
+| **Find Files and Directories**         | `dir [pattern] /s`                                | Searches for files and directories matching the pattern in the current directory and subdirectories. |
+| **Search Text in Files**               | `findstr [pattern] [file]`                          | Searches for a specific text pattern in a file.             |
+| **Display File Content**               | `type [filename]`                                  | Displays the contents of a file.                            |
+| **Compare Files**                     | `fc [file1] [file2]`                                | Compares two files and displays the differences.            |
+| **Create Archive**                    | `tar -cf [archive_name.tar] [directory]`            | Creates a `.tar` archive of a directory (Windows 10+).       |
+| **Extract Archive**                   | `tar -xf [archive_name.tar]`                        | Extracts a `.tar` archive (Windows 10+).                    |
+| **Compress File**                     | `compact /c [filename]`                            | Compresses a file or directory.                             |
+| **Decompress File**                   | `compact /u [filename]`                            | Decompresses a file or directory.                           |
+| **Copy Directory Tree**               | `robocopy [source] [destination] /e`                | Copies a directory tree with all subdirectories and files.  |
+| **Get File Attributes**               | `attrib [filename]`                                | Displays or changes the attributes of a file.               |
+| **Set File Attributes**               | `attrib +[attribute] [filename]`                    | Sets specified attributes for a file.                       |
+
+
